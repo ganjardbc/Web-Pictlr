@@ -6,7 +6,7 @@
                 <div class="hd-menu col-all">
                     <div class="hd-pos hd-lef">
                         <div class="logo" >
-                            <router-link :to="{name: 'home'}">
+                            <router-link :to="{name: ($cookie.get('jwt')) ? 'home' : 'welcome' }">
                                 <img src="@/assets/img/Pictlr/9.png" alt="Pictlr">
                             </router-link>
                         </div>
