@@ -1,0 +1,457 @@
+//files
+@import "variables";
+@import "assets";
+@import "fonts";
+@import "grid";
+@import "column";
+@import "button";
+@import "field";
+@import "image";
+@import "frame";
+@import "content";
+@import "navigator";
+
+//variable
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	outline: none;
+	font-family: "FontFirst", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+html {
+	background-color: $sek-color;
+	&.set-scroll {
+		overflow-y: hidden;
+	}
+	&.set-scroll-mobile {
+		@media (max-width: $max-width) {
+			overflow-y: hidden;
+		}
+	}
+}
+
+a {
+	text-decoration: none;
+}
+
+.mobile {
+	@media (max-width: $max-width) {
+		display: none;
+	}
+}
+.desktop {
+	display: none;
+	@media (max-width: $max-width) {
+		display: block;
+	}
+}
+
+.hide-input-file {
+	display: none;
+}
+
+.col-all {
+	@include col_all();
+}
+.col-full {
+	@include col_full();
+}
+.col-small {
+	@include col_set(700px);
+}
+.col-1000px {
+	@include col_set(1000px);
+}
+.col-900px {
+	@include col_set(900px);
+}
+.col-800px {
+	@include col_set(800px);
+}
+.col-700px {
+	@include col_set(700px);
+}
+.col-600px {
+	@include col_set(600px);
+}
+.col-500px {
+	@include col_set(500px);
+}
+.col-400px {
+	@include col_set(400px);
+}
+.col-300px {
+	@include col_set(300px);
+}
+
+/*header*/
+#header {
+	position: relative;
+	width: 100%;
+	height: 65px;
+	background-color: $sek-color;
+	@media (max-width: $max-width) {
+		height: 65px;
+	}
+	&.hd-mobile {
+		@media (max-width: $max-width) {
+			height: 120px;
+		}
+	}
+	.hd-place {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 20;
+		background-color: $sek-color;
+		@media (max-width: $max-width) {
+			border-bottom: 0 #fff solid;
+		}
+		.hd-menu {
+			position: relative;
+			width: calc(100% - 40px);
+			padding: 10px 20px;
+			cursor: default;
+			@include grid_3x(120px, 1fr, 1fr);
+			@media (max-width: $max-width) {
+				@include grid_2x(120px, 1fr);
+				width: calc(100% - 20px);
+				padding: 10px 10px;
+			}
+			.hd-pos {
+				.main-menu {
+					position: relative;
+					.list {
+						position: relative;
+						display: inline-block;
+						vertical-align: top;
+						text-align: center;
+						margin: 0 0;
+						a {
+							color: $txt-sek-color;
+							font-size: 16px;
+							font-weight: 600;
+							&:hover {
+								background-color: rgba(225,225,225,0.44);
+								color: $txt-min-color;
+							}
+							&.active {
+								background-color: rgba(225,225,225,0.44);
+								color: $txt-min-color;
+							}
+						}
+						&.mobile {
+							@media (max-width: $max-width) {
+								display: none;
+							}
+						}
+					}
+					.text {
+						a {
+							position: relative;
+							height: 45px;
+							line-height: 45px;
+							padding: 0 15px;
+							display: block;
+							border-radius: 45px;
+						}
+					}
+					.create {
+						@media (max-width: $std-width) {
+							position: fixed;
+							bottom: 10px;
+							right: 10px;
+							.ttl {
+								display: none;
+							}
+						}
+					}
+					.circle {
+						position: relative;
+						a {
+							position: relative;
+							width: 45px;
+							height: 45px;
+							line-height: 45px;
+							display: block;
+							border-radius: 100%;
+						}
+						.icn {
+							position: relative;
+							margin: auto;
+						}
+						.icn-spc {
+							color: $min-color;
+						}
+						.image {
+							position: relative;
+							top: (45px - 30px) / 2;
+							margin: auto;
+						}
+					}
+				}
+			}
+			.hd-lef {
+				@include column_1();
+				.logo {
+					position: relative;
+					width: 100px;
+					height: 45px;
+					overflow: hidden;
+					img {
+						@include post_top(relative);
+						width: 100%;
+					}
+				}
+			}
+			.hd-mid {
+				@include column_2();
+				text-align: left;
+				&.hd-mid-mobile {
+					@media (max-width: $max-width) {
+						position: fixed;
+						top: 60px;
+						left: 0;
+						width: calc(100% - 20px);
+						padding: 7.5px 10px;
+						background-color: $sek-color;
+						display: block;
+					}
+				}
+				.main-search {
+					width: 450px;
+					height: 45px;
+					overflow: hidden;
+					background-color: rgba(225,225,225,0.44);
+					border-radius: $radius;
+					@media (max-width: $max-width) {
+						width: 100%;
+					}
+					&.select {
+						background-color: rgba(225,225,225,0.54);
+						.txt {
+							background-color: rgba(225,225,225,0.54);
+							color: $txt-min-color;
+						}
+						.btn {
+							background-color: rgba(225,225,225,0.54);
+							color: $min-color;
+							border-radius: 0;
+						}
+					}
+					.txt {
+						width: calc(100% - 70px);
+						float: right;
+						background-color: rgba(0,0,0,0);
+						color: $txt-sek-color;
+					}
+					.btn {
+						width: 40px;
+						padding: 0 0;
+						float: left;
+						background-color: rgba(0,0,0,0);
+						color: $txt-sek-color;
+					}
+				}
+			}
+			.hd-rig {
+				@include column_3();
+				text-align: right;
+				@media (max-width: $max-width) {
+					@include column_2();
+				}
+			}
+		}
+	}
+}
+
+/*body*/
+#body {
+	.post-home {
+		@include col_set(900px);
+		@media (max-width: $max-width) {
+			padding: 10px 0;
+		}
+		.side-fixed {
+			position: fixed;
+			width: 350px;
+			bottom: 0;
+			@media (max-width: $max-width) {
+				position: relative;
+				width: 100%;
+			}
+		}
+		.side-absolute {
+			position: absolute;
+			right: 0;
+			width: 350px;
+			bottom: 0;
+			@media (max-width: $max-width) {
+				position: relative;
+				width: 100%;
+			}
+		}
+	}
+	.post-compose {
+		position: relative;
+		width: calc(100% - 15px);
+		padding: 15px 7.5px;
+		margin: 10px 0;
+		border-radius: $radius-2;
+		@include grid_2x(60px, 1fr);
+		@include grid_gap(20px);
+		&:hover {
+			background-color: rgba(225,225,225,0.34);
+			@include animate_1();
+		}
+		.pc-col-1 {
+			@include column_n(1);
+		}
+		.pc-col-2 {
+			position: relative;
+			width: 100%;
+			border-radius: $radius-2;
+			overflow: hidden;
+			border: 1px rgba(225,225,225,0.54) solid;
+			background-color: #fff;
+			display: flex;
+			flex-wrap: nowrap;
+			// background-color: rgba(225,225,225,0.34);
+			@include column_n(2);
+			.pc-info {
+				position: relative;
+				width: 270px;
+				padding: 20px 0;
+				text-align: center;
+				&:hover {
+					.pc-icn {
+						margin-top: 10px;
+						margin-bottom: 20px;
+						@include animate_1();
+					}
+					.pc-ttl {
+						color: $txt-54-color;
+					}
+				}
+				.pc-icn {
+					margin: 15px 0;
+				}
+			}
+			.dashed {
+				border-left: 2px rgba(225,225,225,0.54) dashed;
+			}
+		}
+	}
+	.post-grid {
+		position: relative;
+		@include grid_2x(1fr, 320px);
+		@include grid_gap(50px);
+		@media (max-width: $max-width) {
+			@include grid_none();
+		}
+		.post-grid-1 {
+			position: relative;
+			width: calc(100%);
+			@include column_1();
+			@media (max-width: $max-width) {
+				width: calc(100%);
+			}
+		}
+		.post-grid-2 {
+			position: relative;
+			@include column_2();
+			@media (max-width: $max-width) {
+				display: none;
+			}
+			.pg-place-fixed {
+				position: fixed;
+				top: 60px;
+				width: 320px;
+			}
+			.frame-paper-list {
+				width: calc(100% - 30px);
+			}
+			.frame-paper {
+				width: calc(100% - 30px);
+			}
+			.frame-topic {
+				width: 100%;
+				margin: 10px 0;
+				display: block;
+			}
+		}
+	}
+	.post-flex {
+		display: block;
+		flex-wrap: wrap;
+		@media (max-width: $max-width) {
+			display: block;
+		}
+	}
+	.post-navigator {
+		white-space: nowrap;
+		overflow: hidden;
+	}
+	.post-navigators {
+		.post-flex {
+			display: block;
+			flex-wrap: nowrap;
+			white-space: nowrap;
+			overflow: hidden;
+			.frame-paper {
+				width: (($col-full / 4) - 25px);
+				margin: 0 0 0 0;
+				margin-right: 7.5px;
+			}
+			.frame-paper-list {
+				width: (($col-full / 2) - 25px);
+				margin: 0 0 0 0;
+				margin-right: 7.5px;
+			}
+		}
+		.post {
+			position: relative;
+			width: 100%;
+			white-space: nowrap;
+			overflow: hidden;
+			.frame-post-list {
+				margin: 0 0 0 0;
+				margin-right: 7.5px;
+			}
+		}
+	}
+}
+
+/*footer*/
+#footer {
+	position: relative;
+	width: calc(100% - 20px);
+	padding: 30px 10px 30px 10px;
+	text-align: center;
+	cursor: default;
+	border-top: $border;
+	ul {
+		li {
+			list-style: none;
+			display: inline-block;
+			padding: 0 5px;
+			a {
+				color: $txt-sek-color;
+				font-size: 14px;
+				font-weight: 600;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+			.icn {
+				position: relative;
+				top: -2.5px;
+				font-size: 5px;
+				color: rgba(225,225,225,0.94);
+			}
+		}
+	}
+}

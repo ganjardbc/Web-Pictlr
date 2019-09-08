@@ -1,0 +1,447 @@
+//method
+@mixin rgba_black($val, $col) {
+	background-color: rgba(0,0,0,$val);
+	color: $col;
+}
+//position
+@mixin post_none() {
+	position: relative;
+	top: 0;
+	left: 0;
+	-webkit-transform: translate(0, 0);
+	   -moz-transform: translate(0, 0);
+		    -ms-transform: translate(0, 0);
+		     -o-transform: translate(0, 0);
+		        transform: translate(0, 0);
+}
+@mixin post_fixed() {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: $txt-sek-color;
+	z-index: 300;
+}
+@mixin post_top($path) {
+	position: $path;
+    top: 50%;
+    left: 0;
+	-webkit-transform: translate(0, -50%);
+	   -moz-transform: translate(0, -50%);
+		    -ms-transform: translate(0, -50%);
+		     -o-transform: translate(0, -50%);
+		        transform: translate(0, -50%);
+}
+@mixin post_bottom($path) {
+	position: $path;
+    bottom: 0;
+    left: 50%;
+	-webkit-transform: translate(-50%, 0);
+	   -moz-transform: translate(-50%, 0);
+		    -ms-transform: translate(-50%, 0);
+		     -o-transform: translate(-50%, 0);
+		        transform: translate(-50%, 0);
+}
+@mixin post_center($path) {
+    position: $path;
+    top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	   -moz-transform: translate(-50%, -50%);
+		    -ms-transform: translate(-50%, -50%);
+		     -o-transform: translate(-50%, -50%);
+		        transform: translate(-50%, -50%);
+}
+
+@mixin width($val) {
+	width: $val;
+	@media (max-width: $max-width) {
+		width: 100%;
+	}
+}
+
+//animation
+@mixin animate_1() {
+	-webkit-transition: all .25s ease;
+	   -moz-transition: all .25s ease;
+	    -ms-transition: all .25s ease;
+	     -o-transition: all .25s ease;
+	        transition: all .25s ease;
+}
+
+//border
+.border-all {
+	border: $border;
+}
+.border-top {
+	border-top: $border;
+}
+.border-bottom {
+	border-bottom: $border;
+}
+.border-left {
+	border-left: $border;
+}
+.border-right {
+	border-right: $border;
+}
+.border-no {
+	border: $no-border;
+}
+
+//margin
+.margin-30px {
+	margin: 30px 0;
+}
+.margin-25px {
+	margin: 25px 0;
+}
+.margin-20px {
+	margin: 20px 0;
+}
+.margin-15px {
+	margin: 15px 0;
+}
+.margin-10px {
+	margin: 10px 0;
+}
+.margin-5px {
+	margin: 5px 0;
+}
+.margin-top-30px {
+	margin-top: 30px;
+}
+.margin-top-25px {
+	margin-top: 25px;
+}
+.margin-top-20px {
+	margin-top: 20px;
+}
+.margin-top-15px {
+	margin-top: 15px;
+}
+.margin-top-10px {
+	margin-top: 10px;
+}
+.margin-top-5px {
+	margin-top: 5px;
+}
+.margin-bottom-30px {
+	margin-bottom: 30px;
+}
+.margin-bottom-25px {
+	margin-bottom: 25px;
+}
+.margin-bottom-20px {
+	margin-bottom: 20px;
+}
+.margin-bottom-15px {
+	margin-bottom: 15px;
+}
+.margin-bottom-10px {
+	margin-bottom: 10px;
+}
+.margin-bottom-5px {
+	margin-bottom: 5px;
+}
+
+//padding
+.padding-30px {
+	padding: 30px 0;
+}
+.padding-25px {
+	padding: 25px 0;
+}
+.padding-20px {
+	padding: 20px 0;
+}
+.padding-15px {
+	padding: 15px 0;
+}
+.padding-10px {
+	padding: 10px 0;
+}
+.padding-5px {
+	padding: 5px 0;
+}
+.padding-top-30px {
+	padding-top: 30px;
+}
+.padding-top-25px {
+	padding-top: 25px;
+}
+.padding-top-20px {
+	padding-top: 20px;
+}
+.padding-top-15px {
+	padding-top: 15px;
+}
+.padding-top-10px {
+	padding-top: 10px;
+}
+.padding-top-5px {
+	padding-top: 5px;
+}
+.padding-bottom-30px {
+	padding-bottom: 30px;
+}
+.padding-bottom-25px {
+	padding-bottom: 25px;
+}
+.padding-bottom-20px {
+	padding-bottom: 20px;
+}
+.padding-bottom-15px {
+	padding-bottom: 15px;
+}
+.padding-bottom-10px {
+	padding-bottom: 10px;
+}
+.padding-bottom-5px {
+	padding-bottom: 5px;
+}
+
+//width
+.width {
+	position: relative;
+	&.width-center {
+		margin: auto;
+	}
+	&.width-middle {
+		@include post_center(absolute);
+	}
+	&.width-all {
+		width: calc(100% - 30px);
+		padding: 0 15px;
+	}
+	&.width-100px {
+        @include width(100px);
+    }
+	&.width-150px {
+        @include width(150px);
+    }
+	&.width-200px {
+        @include width(200px);
+    }
+    &.width-250px {
+        @include width(250px);
+    }
+    &.width-300px {
+        @include width(300px);
+    }
+    &.width-350px {
+        @include width(350px);
+    }
+    &.width-400px {
+        @include width(400px);
+    }
+    &.width-450px {
+        @include width(450px);
+    }
+    &.width-500px {
+        @include width(500px);
+    }
+    &.width-550px {
+        @include width(550px);
+    }
+    &.width-600px {
+        @include width(600px);
+    }
+    &.width-650px {
+        @include width(650px);
+    }
+    &.width-700px {
+        @include width(700px);
+	}
+	&.width-750px {
+        @include width(750px);
+	}
+	&.width-800px {
+        @include width(800px);
+	}
+	&.width-850px {
+        @include width(850px);
+	}
+	&.width-900px {
+        @include width(900px);
+	}
+	&.width-950px {
+        @include width(950px);
+	}
+	&.width-1000px {
+        @include width(1000px);
+    }
+}
+
+//text
+.txt-site {
+	&.txt-big {
+		font-size: 42pt;
+	}
+	&.txt-small {
+		font-size: 32pt;
+	}
+	&.txt-micro {
+		font-size: 26pt;
+	}
+	&.txt-standar {
+		font-size: 22pt;
+	}
+	&.txt-title {
+		font-size: 18pt;
+	}
+	&.txt-subtitle {
+		font-size: 16pt;
+	}
+	&.txt-description {
+		font-size: 11pt;
+	}
+	&.txt-8 {
+		font-size: 8pt;
+	}
+	&.txt-9 {
+		font-size: 9pt;
+	}
+	&.txt-10 {
+		font-size: 10pt;
+	}
+	&.txt-11 {
+		font-size: 11pt;
+	}
+	&.txt-12 {
+		font-size: 12pt;
+	}
+	&.txt-13 {
+		font-size: 13pt;
+	}
+	&.txt-14 {
+		font-size: 14pt;
+	}
+	&.txt-15 {
+		font-size: 15pt;
+	}
+	&.txt-16 {
+		font-size: 16pt;
+	}
+	&.txt-17 {
+		font-size: 17pt;
+	}
+	&.txt-18 {
+		font-size: 18pt;
+	}
+	&.txt-19 {
+		font-size: 19pt;
+	}
+	&.txt-20 {
+		font-size: 20pt;
+	}
+	&.txt-init {
+		color: $min-color;
+	}
+	&.txt-main-hover {
+		&:hover {
+			color: $min-color;
+		}
+	}
+	a {
+		&.txt-main {
+			color: $txt-84-color;
+			&:hover {
+				color: $min-color;
+			}
+		}
+	}
+	&.txt-main {
+		color: $txt-84-color;
+		a {
+			color: $txt-84-color;
+			&:hover {
+				color: $min-color;
+			}
+		}
+	}
+	a {
+		&.txt-primary {
+			color: $txt-54-color;
+			&:hover {
+				color: $txt-84-color;
+			}
+		}
+	}
+	&.txt-primary {
+		color: $txt-54-color;
+		a {
+			color: $txt-54-color;
+			&:hover {
+				color: $txt-84-color;
+			}
+		}
+	}
+	&.txt-white {
+		color: #fff;
+	}
+	&.txt-danger {
+		color: $err-color;
+	}
+	&.txt-safe {
+		color: $pos-color;
+	}
+	&.txt-white {
+		color: #fff;
+	}
+	&.txt-red {
+		color: $red;
+	}
+	&.txt-green {
+		color: $green;
+	}
+	&.txt-blue {
+		color: $blue;
+	}
+	&.txt-orange {
+		color: $orange;
+	}
+	&.txt-cyan {
+		color: $cyan;
+	}
+	&.txt-thin {
+		font-weight: 500;
+		font-family: "FontFirst", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	}
+	&.txt-bold {
+		font-weight: 600;
+		font-family: "FontFirstBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	}
+	&.txt-extra-bold {
+		font-weight: 800;
+		font-family: "FontFirstExtraBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	}
+	&.txt-font-1 {
+		font-family: "FontFirst", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	}
+	&.txt-font-2 {
+		font-family: "FontFirst2", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	}
+	&.txt-font-3 {
+		font-family: "FontFirst3", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	}
+	&.txt-center {
+		text-align: center;
+	}
+	&.txt-left {
+		text-align: left;
+	}
+	&.txt-right {
+		text-align: right;
+	}
+	&.txt-capital {
+		text-transform: capitalize;
+	}
+	&.txt-top {
+		@include post_top(relative);
+	}
+	&.txt-middle {
+		@include post_center(relative);
+	}
+}

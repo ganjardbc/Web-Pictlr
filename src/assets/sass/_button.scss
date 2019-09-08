@@ -1,0 +1,166 @@
+/*button normal*/
+.btn {
+	position: relative;
+	padding: 12.5px 14px;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: 600;
+	text-align: center;
+	cursor: pointer;
+	/*&:focus {
+		box-shadow: 0 0 0 4px $pos-color;
+	}*/
+	&.btn-all {
+		width: 100%;
+	}
+	&.btn-cursor-default {
+		cursor: default;
+	}
+	&.btn-focus:focus {
+		background-color: rgba(225,225,225,0.54);
+	}
+	&.btn-no-focus:focus {
+		box-shadow: 0 0 0 0 rgba(0,0,0,0);
+	}
+	&.btn-no-pad {
+		padding: 0 0;
+	}
+	&.btn-upp {
+		text-transform: uppercase;
+	}
+	&.btn-radius {
+		border-radius: 45px;
+	}
+	&.btn-div {
+		padding: 10px 15px;
+		height: 45px;
+		line-height: 45px;
+	}
+	&.btn-circle {
+		width: 45px;
+		height: 45px;
+		padding: 0 0;
+		border-radius: 100%;
+		text-align: center;
+	}
+	&.btn-main-color {
+		background-color: $min-color;
+		color: $sek-color;
+	}
+	&.btn-main2-color {
+		background-color: rgba(0,0,0,0);
+		color: $txt-sek-color;
+		&:hover {
+			transition: 0.3s;
+			background-color: rgba(225,225,225,0.54);
+			color: $txt-min-color;
+		}
+	}
+	&.btn-main3-color {
+		background-color: $pos-color;
+		color: $sek-color;
+	}
+	&.btn-main4-color {
+		background-color: $sek-color;
+		color: $min-color;
+	}
+	&.btn-main5-color {
+		background-color: rgba(0,0,0,0);
+		color: $pos-color;
+	}
+	&.btn-sekunder-color {
+		background-color: $sek-color;
+		color: $txt-sek-color;
+		border: 1px rgba(0,0,0,0.1) solid;
+		&:hover {
+			transition: 0.3s;
+			color: $txt-min-color;
+			border: 1px $txt-sek-color solid;
+		}
+		&.btn-no-border {
+			border: 0 #fff solid;
+		}
+	}
+	&.btn-black-color {
+		background-color: rgba(0,0,0,0.54);
+		color: $sek-color;
+		&:hover {
+			transition: 0.3s;
+			background-color: rgba(0,0,0,0.84);
+		}
+	}
+	&.btn-grey-color {
+		background-color: $txt-sek-color;
+		color: $sek-color;
+	}
+	&.btn-grey2-color {
+		background-color: rgba(225,225,225,0.34);
+		color: $txt-sek-color;
+		&:hover {
+			transition: 0.3s;
+			background-color: rgba(225,225,225,0.54);
+			color: $txt-min-color;
+		}
+	}
+	&.btn-grey3-color {
+		background-color: #fff;
+		color: $txt-sek-color;
+		&:hover {
+			transition: 0.3s;
+			background-color: #f2f2f2;
+			color: $txt-min-color;
+		}
+	}
+	&.btn-grey4-color {
+		background-color: rgba(225,225,225,0);
+		color: $txt-sek-color;
+		&:hover {
+			transition: 0.3s;
+			background-color: rgba(225,225,225,0.54);
+			color: $txt-min-color;
+		}
+	}
+	&.btn-primary-color {
+		background-color: rgba(225,225,225,0);
+		color: $txt-sek-color;
+		&:hover {
+			transition: 0.3s;
+			background-color: rgba(225,225,225,0.54);
+			color: $txt-min-color;
+		}
+	}
+	&.btn-no-color {
+		background-color: rgba(0,0,0,0);
+		color: $txt-sek-color;
+	}
+	&.btn-color-fb {
+		background-color: #44749d;
+		color: #fff;
+	}
+	&.btn-color-gg {
+		background-color: #9a0000;
+		color: #fff;
+	}
+	&.btn-color-gg-2 {
+		background-color: #fff;
+		color: #9a0000;
+		border: 1px #9a0000 solid;
+	}
+	&.btn-color-gg-3 {
+		background-color: #fff;
+		color: #9a0000;
+	}
+	&.btn-color-tw {
+		background-color: #60d3f5;
+		color: #fff;
+	}
+	&.btn-text-left {
+		text-align: left;
+	}
+	&.btn-no-pad {
+		padding: 15px 0;
+	}
+	&.btn-font-big {
+		font-size: 18px;
+	}
+}
