@@ -322,37 +322,38 @@ Vue.prototype.$watchPaper = function (id, iduser, idcanvas) {
 
 //logout
 Vue.prototype.$logOut = function () {
-  var a = confirm('Logout from your account?')
-  if (a) 
-  {
-      var vm = this
-      //this.$openMessageYesNo('Logout from your account?', function () {
-      axios.get(vm.baseUrl+'/api/auth/logout?token='+vm.$cookie.get('jwt'))
-      .then(response => {
-          if (response.data.status == "success") 
-          {
-              vm.$cookie.delete('jwt')
-              vm.$cookie.delete('id')
-              window.location = vm.initUrl+'/welcome'
-          }
-          else 
-          {
-              vm.$openMessageBottom('open', 'logout failed')
-          }
-      })
-      .catch(e => {
-          if (e.response.data.error == 'token_expired') 
-          {
-              //hard reset
-          }
-          //console.log(e.response)
-          vm.$cookie.delete('jwt')
-          vm.$cookie.delete('id')
-        //   window.location = vm.initUrl+'/welcome'
-        this.$router.go({name: 'welcome'})
-      })
+    var a = confirm('Logout from your account?')
+    if (a) 
+    {
+        var vm = this
+        //this.$openMessageYesNo('Logout from your account?', function () {
+        axios.get(vm.baseUrl+'/api/auth/logout?token='+vm.$cookie.get('jwt'))
+        .then(response => {
+            if (response.data.status == "success") 
+            {
+                vm.$cookie.delete('jwt')
+                vm.$cookie.delete('id')
+                // window.location = vm.initUrl+'/welcome'
+                this.$router.go({name: 'welcome'})
+            }
+            else 
+            {
+                vm.$openMessageBottom('open', 'logout failed')
+            }
+        })
+        .catch(e => {
+            if (e.response.data.error == 'token_expired') 
+            {
+                //hard reset
+            }
+            //console.log(e.response)
+            vm.$cookie.delete('jwt')
+            vm.$cookie.delete('id')
+            // window.location = vm.initUrl+'/welcome'
+            this.$router.go({name: 'welcome'})
+        })
       //})
-  }
+    }
 }
 
 /* eslint-disable no-new */
