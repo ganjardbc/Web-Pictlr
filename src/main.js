@@ -334,7 +334,7 @@ Vue.prototype.$logOut = function () {
                 vm.$cookie.delete('jwt')
                 vm.$cookie.delete('id')
                 // window.location = vm.initUrl+'/welcome'
-                this.$router.go({name: 'welcome'})
+                this.$router.replace({name: 'welcome'})
             }
             else 
             {
@@ -350,7 +350,7 @@ Vue.prototype.$logOut = function () {
             vm.$cookie.delete('jwt')
             vm.$cookie.delete('id')
             // window.location = vm.initUrl+'/welcome'
-            this.$router.go({name: 'welcome'})
+            this.$router.replace({name: 'welcome'})
         })
       //})
     }

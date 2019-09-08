@@ -138,7 +138,7 @@
                             </div>
                         </div>
 
-                        <div class="fs-block">
+                        <div class="fs-block" v-if="$cookie.get('jwt')">
                             <div class="txt-site txt-11 txt-bold txt-main margin-bottom-5px">
                                 Rates
                             </div>
@@ -204,7 +204,7 @@
                             <div class="txt-site txt-11 txt-bold txt-main margin-bottom-5px">
                                 Response
                             </div>
-                            <form @submit.prevent="doResponse">
+                            <form @submit.prevent="doResponse" v-if="$cookie.get('jwt')">
                                 <input 
                                     type="text" 
                                     class="txt txt-primary-color txt-no-shadow" 
