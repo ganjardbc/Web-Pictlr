@@ -6,9 +6,9 @@
                 <div class="hd-menu col-all">
                     <div class="hd-pos hd-lef">
                         <div class="logo" >
-                            <a href="/">
+                            <router-link :to="{name: 'home'}">
                                 <img src="@/assets/img/Pictlr/9.png" alt="Pictlr">
-                            </a>
+                            </router-link>
                         </div>
                     </div>
                     <div class="hd-pos hd-mid hd-mid-mobile">

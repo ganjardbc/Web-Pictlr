@@ -28,17 +28,16 @@
                                             {{ pp.name }}
                                         </router-link>
                                     </h1>
+                                    <p>
+                                        <router-link 
+                                            class="txt-site txt-main txt-12 txt-extra-bold txt-main-hover"
+                                            :to="{name: 'user', params: {username: pp.username}}" >
+                                            {{ pp.username }}
+                                        </router-link>
+                                    </p>
                                 </div>
                                 <div class="txt-site txt-12 txt-main txt-thin padding-bottom-5px">
-                                    <!-- <router-link :to="{name: 'user', params: {username: pp.username}}">
-                                        {{ pp.username }}
-                                    </router-link> -->
                                     <span v-if="pp.about">
-                                        <!-- <span 
-                                            class="txt-site txt-8 txt-primary"
-                                            style="position: relative; top: -2.5px;">
-                                            <span class="fa fa-lw fa-circle"></span>
-                                        </span> -->
                                         {{ pp.about }}
                                     </span>
                                 </div>

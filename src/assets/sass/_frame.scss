@@ -717,7 +717,7 @@
 			padding: 10px 5px;
 			margin: 5px 0;
 			border-radius: $radius;
-			@include grid_2x(25px, 1fr);
+			@include grid_3x(25px, 1fr, 25px);
 			@include grid_gap(10px);
 			&:hover {
 				@include animate_1();
@@ -1092,7 +1092,7 @@ $hg-paper-small: 40px;
 	.fps-top {
 		position: relative;
 		width: $hg-paper-small;
-		border-radius: 2.5px;
+		border-radius: 5px;
 		overflow: hidden;
 		@include column_n(1);
 	}

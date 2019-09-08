@@ -41,7 +41,7 @@
                                     class="image image-full image-radius" 
                                     :style="{'background-image': 'url('+$cookie.get('design')+')'}">
                                 </div>
-                                <div class="ctn-main-font ctn-err-color ctn-font-normal ctn-thin ctn-14px padding-top-5px">
+                                <div class="txt-site txt-11 txt-red txt-bold padding-top-10px">
                                     {{ messageFile }}
                                 </div>
                             </div>

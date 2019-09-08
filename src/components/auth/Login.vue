@@ -79,7 +79,7 @@
                             type="button" 
                             value="Register" 
                             class="btn btn-main2-color" 
-                            style="float: left;">
+                            style="float: left">
                     </router-link>
                     <input 
                         type="submit" 
@@ -115,79 +115,80 @@ export default {
     },
     methods: {
         doLogin () {
-            var vm = this;
-            this.frameErr = false;
-            this.frameErrEmail = false;
-            this.frameErrPass = false;
-            this.valLogin = 'Please Wait...';
-            this.disLogin = true;
+            var vm = this
+            this.frameErr = false
+            this.frameErrEmail = false
+            this.frameErrPass = false
+            this.valLogin = 'Please Wait...'
+            this.disLogin = true
             axios.post(this.url, {
                 'email': this.user.email,
                 'password': this.user.password
             })
             .then(response => {
-                console.log('response', response.data.me);
+                console.log('response', response.data.me)
                 if (response.data.status === 'unauthorized') 
                 {
-                    vm.frameErr = true;
-                    vm.message = e.response.responseText;
-                    vm.valLogin = 'Try Again';
-                    vm.disLogin = false;
+                    vm.frameErr = true
+                    vm.message = e.response.responseText
+                    vm.valLogin = 'Try Again'
+                    vm.disLogin = false
                 }
                 if (response.data.status === 'email-invalid') 
                 {
-                    vm.valLogin = 'Try again';
-                    vm.disLogin = false;
+                    vm.valLogin = 'Try again'
+                    vm.disLogin = false
                     if (response.data.message) 
                     {
-                        vm.frameErrEmail = true;
-                        vm.messageEmail = response.data.message;
+                        vm.frameErrEmail = true
+                        vm.messageEmail = response.data.message
                     }
                 }
                 if (response.data.status === 'password-invalid') 
                 {
-                    vm.valLogin = 'Try again';
-                    vm.disLogin = false;
+                    vm.valLogin = 'Try again'
+                    vm.disLogin = false
                     if (response.data.message) 
                     {
-                        vm.frameErrPass = true;
-                        vm.messagePass = response.data.message;
+                        vm.frameErrPass = true
+                        vm.messagePass = response.data.message
                     }
                 }
                 if (response.data.status == 'success') 
                 {
-                    vm.valLogin = 'Success';
-                    vm.disLogin = false;
-                    this.$cookie.set('jwt', response.data.me.access_token, 2);
-                    this.$cookie.set('id', response.data.me.id, 2);
-                    this.$cookie.set('name', response.data.me.name, 2);
-                    this.$cookie.set('username', response.data.me.username, 2);
-                    this.$cookie.set('foto', response.data.me.foto, 2);
-                    window.location = vm.initUrl;
+                    vm.valLogin = 'Success'
+                    vm.disLogin = false
+                    this.$cookie.set('jwt', response.data.me.access_token, 2)
+                    this.$cookie.set('id', response.data.me.id, 2)
+                    this.$cookie.set('name', response.data.me.name, 2)
+                    this.$cookie.set('username', response.data.me.username, 2)
+                    this.$cookie.set('foto', response.data.me.foto, 2)
+                    // window.location = vm.initUrl
+                    this.$router.replace({name: 'home'})
                 }
             })
             .catch(e => {
                 //main error
                 if (e.response.status == 405) 
                 {
-                    var msg = e.response.statusText;
+                    var msg = e.response.statusText
                 }
                 if (e.response.status == 401) 
                 {
-                    var msg = 'There is an error, please try again';
+                    var msg = 'There is an error, please try again'
                 }
-                vm.frameErr = true;
-                vm.message = msg;
-                vm.valLogin = 'Try Again';
-                vm.disLogin = false;
-                console.log('error', e);
-            });
+                vm.frameErr = true
+                vm.message = msg
+                vm.valLogin = 'Try Again'
+                vm.disLogin = false
+                console.log('error', e)
+            })
         }
     },
     beforeCreate: function () {
         if (this.$cookie.get('jwt')) 
         {
-            this.$router.push('/');
+            this.$router.push('/')
         }
     }
 }

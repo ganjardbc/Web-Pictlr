@@ -102,7 +102,7 @@
                             type="button" 
                             value="Login" 
                             class="btn btn-main2-color" 
-                            style="float: left;">
+                            style="float: left;"
                     </router-link>
                     <input 
                         type="submit" 
@@ -141,13 +141,13 @@ export default {
     },
     methods: {
         doRegister () {
-            var vm = this;
-            this.frameErr = false;
-            this.frameErrName = false;
-            this.frameErrEmail = false;
-            this.frameErrPass = false;
-            this.valRegister = 'Please Wait...';
-            this.disRegister = true;
+            var vm = this
+            this.frameErr = false
+            this.frameErrName = false
+            this.frameErrEmail = false
+            this.frameErrPass = false
+            this.valRegister = 'Please Wait...'
+            this.disRegister = true
             axios.post(this.url, {
                 'name': this.user.name,
                 'email': this.user.email,
@@ -156,64 +156,65 @@ export default {
             .then(response => {
                 if (response.data.status == 'unlogin') 
                 {
-                    vm.frameErr = true;
-                    vm.message = e.response.responseText;
-                    vm.valRegister = 'Success';
-                    vm.disRegister = true;
+                    vm.frameErr = true
+                    vm.message = e.response.responseText
+                    vm.valRegister = 'Success'
+                    vm.disRegister = true
                 }
                 if (response.data.status == 'unauthorized') 
                 {
-                    vm.frameErr = true;
-                    vm.message = e.response.responseText;
-                    vm.valRegister = 'Try Again';
-                    vm.disRegister = false;
+                    vm.frameErr = true
+                    vm.message = e.response.responseText
+                    vm.valRegister = 'Try Again'
+                    vm.disRegister = false
                 }
                 if (response.data.status === 'email-invalide') 
                 {
-                    vm.valLogin = 'Try again';
-                    vm.disLogin = false;
+                    vm.valLogin = 'Try again'
+                    vm.disLogin = false
                     if (response.data.message) 
                     {
-                        vm.frameErrEmail = true;
-                        vm.messageEmail = response.data.message;
+                        vm.frameErrEmail = true
+                        vm.messageEmail = response.data.message
                     }
                 }
                 if (response.data.status === 'password-invalide') 
                 {
-                    vm.valLogin = 'Try again';
-                    vm.disLogin = false;
+                    vm.valLogin = 'Try again'
+                    vm.disLogin = false
                     if (response.data.message) 
                     {
-                        vm.frameErrPass = true;
-                        vm.messagePass = response.data.message;
+                        vm.frameErrPass = true
+                        vm.messagePass = response.data.message
                     }
                 }
                 if (response.data.status == 'success') 
                 {
-                    vm.valRegister = 'Success';
-                    vm.disRegister = true;
-                    this.$cookie.set('jwt', response.data.me.access_token, 2);
-                    this.$cookie.set('id', response.data.me.id, 2);
-                    this.$cookie.set('name', response.data.me.name, 2);
-                    this.$cookie.set('username', response.data.me.username, 2);
-                    this.$cookie.set('foto', response.data.me.foto, 2);
-                    window.location = vm.initUrl;
+                    vm.valRegister = 'Success'
+                    vm.disRegister = true
+                    this.$cookie.set('jwt', response.data.me.access_token, 2)
+                    this.$cookie.set('id', response.data.me.id, 2)
+                    this.$cookie.set('name', response.data.me.name, 2)
+                    this.$cookie.set('username', response.data.me.username, 2)
+                    this.$cookie.set('foto', response.data.me.foto, 2)
+                    // window.location = vm.initUrl
+                    this.$router.replace({name: 'home'})
                 }
             })
             .catch(e => {
                 //main error
-                vm.frameErr = true;
-                vm.message = e.response.responseText;
-                vm.valRegister = 'Try Again';
-                vm.disRegister = false;
-                console.log(e.response);
-            });
+                vm.frameErr = true
+                vm.message = e.response.responseText
+                vm.valRegister = 'Try Again'
+                vm.disRegister = false
+                console.log(e.response)
+            })
         }
     },
     beforeCreate: function () {
         if (this.$cookie.get('jwt')) 
         {
-            this.$router.push('/');
+            this.$router.push('/')
         }
     }
 }

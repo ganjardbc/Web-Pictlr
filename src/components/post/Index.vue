@@ -225,16 +225,16 @@
                                             </router-link>
                                         </div>
                                         <div class="fsp-col-2">
-                                            <div class="ctn-main-font ctn-14px ctn-sek-color">
+                                            <div class="txt-site txt-11 txt-bold txt-main">
                                                 <router-link :to="{name: 'user', params: {username: rest.username}}">
                                                     {{ rest.name }}
                                                 </router-link>
                                             </div>
-                                            <div class="ctn-main-font ctn-14px ctn-thin ctn-sek-color">
-                                                {{ rest.description }}
-                                            </div>
-                                            <div class="ctn-main-font ctn-12px ctn-thin ctn-sek-color">
+                                            <div class="txt-site txt-9 txt-thin txt-primary">
                                                 <span>{{ rest.created | moment('from', 'now') }}</span>
+                                            </div>
+                                            <div class="txt-site txt-12 txt-thin txt-main">
+                                                {{ rest.description }}
                                             </div>
                                         </div>
                                         <div v-if="$cookie.get('id') == rest.id" class="fsp-col-3">
