@@ -9,6 +9,11 @@
 import FrameDesign from '../post/Card';
 
 export default {
+    beforeCreate: function () {
+        if (!this.$cookie.get('jwt')) {
+            this.$router.push('/trendings');
+        }
+    },
     data () {
         return {
             urlGetDesign: this.baseUrl+'/api/design/feeds?token='+this.$cookie.get('jwt'),
