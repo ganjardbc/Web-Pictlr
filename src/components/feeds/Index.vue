@@ -75,7 +75,7 @@ export default {
     },
     beforeCreate () {
         if (!this.$cookie.get('jwt')) {
-            this.$router.push('/trendings');
+            this.$router.push('/fresh');
         }
     },
     components: {
