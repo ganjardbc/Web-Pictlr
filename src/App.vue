@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="list circle">
                                     <div>
-                                        <router-link :to="{name: 'trendings'}" :class="navTrend">
+                                        <router-link :to="{name: 'fresh'}" :class="navTrend">
                                             <span class="icn fas fa-lg fa-compass txt-site txt-16"></span>
                                         </router-link>
                                     </div>
