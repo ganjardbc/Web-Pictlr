@@ -5,7 +5,7 @@ import Router from 'vue-router'
 import Welcome from '@/components/welcome/Index'
 
 // feeds
-import Feeds from '@/components/home/Index'
+import Feeds from '@/components/feeds/Index'
 
 // auth
 import Login from '@/components/auth/Login'

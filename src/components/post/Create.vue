@@ -103,7 +103,7 @@
                                 <div class="fc-block">
                                     <div class="fcb-top">
                                         <p class="ttl txt-site txt-10 txt-primary txt-thin">
-                                            Detail [optional]
+                                            Detail
                                         </p>
                                     </div>
                                     <div class="fcb-mid">
@@ -127,7 +127,7 @@
                                 <div class="fc-block">
                                     <div class="fcb-top">
                                         <p class="ttl txt-site txt-10 txt-primary txt-thin">
-                                            Tags [optional]
+                                            Tags
                                         </p>
                                     </div>
                                     <div class="fcb-mid">
@@ -166,6 +166,9 @@
                                     </p>
                                 </div>
                                 <div class="fccc-mid">
+                                    <div v-if="loading">
+                                        <frame-loading></frame-loading>
+                                    </div>
                                     <div v-if="frameSmallPaperEmpty">
                                         <div class="padding-20px">
                                             <div class="padding-20px"></div>
@@ -178,7 +181,7 @@
                                         </div>
                                     </div>
                                     <div v-if="frameSmallPaperContent">
-                                        <div v-for="pp in paper">
+                                        <div v-for="(pp, idx) in paper" v-bind:key="idx">
                                             <div class="frame-small-paper" :id="'small-paper-'+pp.idcanvas">
                                                 <div 
                                                     class="cover" 
@@ -296,6 +299,8 @@
     </div>
 </template>
 <script>
+import FrameLoading from '../main/FrameLoading';
+
 export default {
     data () {
         return {
@@ -318,6 +323,7 @@ export default {
             frameSmallPaperEmpty: false,
             refreshSmallPaper: true,
             framePaperMessage: false,
+            loading: false,
             paperMessage: '',
             icnBrowse: 'image image-all bdr-dashed',
             icnSelect: 'select place-paper',
@@ -332,6 +338,9 @@ export default {
     },
     created: function () {
         //this.fetchDataPaper();
+    },
+    components: {
+        'frame-loading': FrameLoading,
     },
     methods: {
         rvwFoto: function () {
@@ -418,8 +427,10 @@ export default {
             var vm = this;
             vm.frameSmallPaperEmpty = false;
             vm.frameSmallPaperContent = false;
+            this.loading = true;
             axios.get(this.urlGetPaper)
             .then(response => {
+                this.loading = false;
                 if (response.data.status == 'success') {
                     vm.frameSmallPaperEmpty = false;
                     vm.frameSmallPaperContent = true;
@@ -430,13 +441,13 @@ export default {
                 }
             })
             .catch(e => {
+                this.loading = false;
                 if (e.response.data.error) {
                     this.$openMessageOk(e.response.data.error);
                 } else {
                     this.$openMessageOk(e.response.statusText);
                 }
                 console.log(e.response);
-                
             });
         },
         doPublishDesign: function () {

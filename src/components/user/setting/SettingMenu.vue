@@ -77,7 +77,12 @@ export default {
             this.profile = '';
             this.password = 'active';
         }
-    }
+    },
+    beforeCreate () {
+        if (!this.$cookie.get('jwt')) {
+            this.$router.push('/welcome');
+        }
+    },
 }
 </script>
 

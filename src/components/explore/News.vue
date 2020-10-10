@@ -14,14 +14,14 @@
 
         <div v-if="placeTopic">
             <div>
-                <div class="frame-topic color-1" style="margin-right: 0px;">
-                    <router-link :to="{name: 'trendings'}">
-                        Trendings
-                    </router-link>
-                </div>
                 <div class="frame-topic color-2" style="margin-right: 0px;">
                     <router-link :to="{name: 'fresh'}">
                         Fresh
+                    </router-link>
+                </div>
+                <div class="frame-topic color-1" style="margin-right: 0px;">
+                    <router-link :to="{name: 'trendings'}">
+                        Trendings
                     </router-link>
                 </div>
                 <div class="frame-topic color-3" style="margin-right: 0px;">
@@ -29,14 +29,12 @@
                         Populars
                     </router-link>
                 </div>
-                <!--
                 <div v-if="$cookie.get('jwt')" class="frame-topic color-4">
                     <router-link to="/timelines">
                         Timelines
                     </router-link>
                 </div>
-                -->
-                <div class="frame-topic mn-color" v-for="tag in topics">
+                <div class="frame-topic mn-color" v-for="(tag, idx) in topics" v-bind:key="idx">
                     <div 
                             class="bg-cover"
                             :style="{

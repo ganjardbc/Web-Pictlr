@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-if="placeDesign">
-            <div v-for="dg in designs">
+            <div v-for="(dg, idx) in designs" v-bind:key="idx">
                 <div class="frame-post fp-tumbler" :key="dg.idbookmark">
                     <div class="fpt-col-1">
                         <router-link :to="{name: 'user', params: {username: dg.username}}">
@@ -77,12 +77,6 @@
                         <div class="mid margin-10px">
                             <div class="oth-tool">
                                 <div class="ot-col-1">
-                                    <!-- <div class="txt-site txt-11 txt-primary txt-bold margin-top-5px">
-                                        {{ dg.views + dg.ttl_comment + dg.ttl_bookmark + dg.ttl_likes }} notes
-                                    </div> -->
-                                    <button class="btn-icn btn btn-radius btn-main2-color">
-                                        <span class="icn fas fa-lg fa-share-alt"></span>
-                                    </button>
                                     <router-link :to="{name: 'index-post', params: {idbookmark: dg.idbookmark}}">
                                         <button class="btn-icn btn btn-radius btn-main2-color">
                                             <span class="icn far fa-lg fa-comment-alt"></span>

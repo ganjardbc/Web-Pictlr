@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-if="rest && rest.length">
-            <div v-for="dt in rest">
+            <div v-for="(dt, idx) in rest" v-bind:key="idx">
                 <div>
                     <div class="frame-comment comment-owner">
 						<div class="dt-1">

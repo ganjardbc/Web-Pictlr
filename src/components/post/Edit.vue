@@ -100,7 +100,7 @@
                                     <div class="fc-block">
                                         <div class="fcb-top">
                                             <p class="ttl txt-site txt-10 txt-primary txt-thin">
-                                                Detail [optional]
+                                                Detail
                                             </p>
                                         </div>
                                         <div class="fcb-mid">
@@ -123,7 +123,7 @@
                                     <div class="fc-block">
                                         <div class="fcb-top">
                                             <p class="ttl txt-site txt-10 txt-primary txt-thin">
-                                                Tags [optional]
+                                                Tags
                                             </p>
                                         </div>
                                         <div class="fcb-mid">
@@ -162,6 +162,9 @@
                                         </p>
                                     </div>
                                     <div class="fccc-mid">
+                                        <div v-if="loadingCanvas">
+                                            <frame-loading></frame-loading>
+                                        </div>
                                         <div v-if="frameSmallPaperEmpty">
                                             <div class="padding-20px">
                                                 <div class="padding-20px"></div>
@@ -175,7 +178,7 @@
                                             </div>
                                         </div>
                                         <div v-if="frameSmallPaperContent">
-                                            <div v-for="pp in paper">
+                                            <div v-for="(pp, idx) in paper" v-bind:key="idx">
                                                 <div class="frame-small-paper" :id="'small-paper-'+pp.idcanvas">
                                                     <div 
                                                         class="cover" 
@@ -315,6 +318,7 @@ export default {
             frameSmallPaperEmpty: false,
             refreshSmallPaper: true,
             framePaperMessage: false,
+            loadingCanvas: false,
             paperMessage: '',
             foto: '',
             titlePaper: '',
@@ -443,9 +447,10 @@ export default {
             var vm = this;
             vm.frameSmallPaperEmpty = false;
             vm.frameSmallPaperContent = false;
-            
+            this.loadingCanvas = true;
             axios.get(this.urlGetPaper)
             .then(response => {
+                this.loadingCanvas = false;
                 if (response.data.status == 'success') {
                     vm.frameSmallPaperEmpty = false;
                     vm.frameSmallPaperContent = true;
@@ -456,6 +461,7 @@ export default {
                 }
             })
             .catch(e => {
+                this.loadingCanvas = false;
                 if (e.response.data.error) {
                     this.$openMessageOk(e.response.data.error);
                 } else {

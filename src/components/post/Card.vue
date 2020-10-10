@@ -4,7 +4,7 @@
             <masonry 
                 :cols="{default: defaultCol, 1000: 4, 800: 3, 540: 2, 340: 1}"
                 :gutter="{default: 5, 1000: 0}">
-                <div v-for="dg in designs">
+                <div v-for="(dg, idx) in designs" v-bind:key="idx">
                     <div class="frame-post" :key="dg.idbookmark">
                         <div class="mid">
                             <div class="mid-tool">
@@ -230,7 +230,7 @@ export default {
         },
         editDesign () {
             this.closeMenu();
-            this.$router.push('/design/'+this.idbookmarkMenu+'/edit');
+            this.$router.push({name: 'edit-post', params: {idbookmark: this.idbookmarkMenu}});
         },
         deleteDesign () {
             this.closeMenu();

@@ -14,7 +14,7 @@
 
         <div v-if="placeCanvas">
             <div class="post-flex" id="nav-canvas">
-                <span v-for="pp in canvas">
+                <span v-for="(pp, idx) in canvas" v-bind:key="idx">
                     <div class="frame-paper-list">
                         <div class="top">
                             <div class="lef">
@@ -75,7 +75,7 @@
                                     </li>
                                     <li>
                                         <div class="val">{{ pp.ttl_design }}</div>
-                                        <div class="ttl">Designs</div>
+                                        <div class="ttl">Posts</div>
                                     </li>
                                     <li>
                                         <div class="val">{{ pp.ttl_watch }}</div>

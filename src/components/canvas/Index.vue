@@ -16,19 +16,19 @@
             <div class="col-full padding-top-10px">
                 <div class="paper-cover">
                     <div class="pl-cover">
-                        <div class="pl-profile">
+                        <div class="pl-profile" :style="{'text-align': 'center'}">
                             <div class="ctn-main-font ctn-center ctn-white-color">
                                 <router-link 
                                     :to="{name: 'user', params: {username: pp.username}}"
                                     style="display: inline-block; vertical-align: top;">
                                     <div class="image image-80px image-circle" 
-                                    :style="{
-                                        'background-image': 'url('+pp.foto+')',
-                                        'margin': 'auto',
-                                    }"></div>
+                                        :style="{
+                                            'background-image': 'url('+pp.foto+')',
+                                            'margin': 'auto',
+                                        }" />
                                 </router-link>
                             </div>
-                            <div>
+                            <div class="padding-top-10px">
                                 <h1 class="txt-site txt-white txt-micro txt-extra-bold txt-center">
                                     {{ pp.title }}
                                 </h1>
@@ -75,7 +75,7 @@
                             </li>
                             <li>
                                 <div class="val">{{ pp.designs }}</div>
-                                <div class="ttl">Designs</div>
+                                <div class="ttl">Posts</div>
                             </li>
                             <li>
                                 <div class="val">{{ pp.watchs }}</div>
@@ -122,7 +122,7 @@
                 <div class="padding-bottom-15px">
                     <div v-if="tagPaper && tagPaper.length">
                         <div class="padding-10px">
-                            <span v-for="tag in tagPaper">
+                            <span v-for="(tag, idx) in tagPaper" v-bind:key="idx">
                                 <router-link :to="{'path': '/tags/'+tag.tag}" class="frame-top-tag no-margin">
                                     {{tag.tag}}
                                 </router-link>

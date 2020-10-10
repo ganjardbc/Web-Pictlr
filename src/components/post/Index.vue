@@ -122,8 +122,8 @@
                                 Tags
                             </div>
 
-                            <div>
-                                <div v-for="tag in tagDesign">
+                            <div style="display: flex; flex-wrap: nowrap;">
+                                <div v-for="(tag, idx) in tagDesign" v-bind:key="idx">
                                     <router-link 
                                         :to="{
                                             name: 'index-tags', 
@@ -180,7 +180,7 @@
                                 </div>
                                 <div class="fs-block-canvas">
                                     <div class="fs-canvas-direction">
-                                        <div class="fs-canvas" v-for="canvas in canvasDesign">
+                                        <div class="fs-canvas" v-for="(canvas, idx) in canvasDesign" v-bind:key="idx">
                                             <div class="fs-canvas-image">
                                                 <router-link :to="{
                                                     name: 'visit-canvas', 
@@ -213,7 +213,7 @@
                                     required>
                             </form>
                             <div v-if="restDesign && restDesign.length">
-                                <div v-for="(rest, index) in restDesign">
+                                <div v-for="(rest, index) in restDesign" v-bind:key="index">
                                     <div class="fs-profile">
                                         <div class="fsp-col-1">
                                             <router-link :to="{name: 'user', params: {username: rest.username}}">

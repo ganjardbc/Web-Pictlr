@@ -14,7 +14,7 @@
 
         <div v-if="placeCanvas">
             <div class="post-flex" id="nav-canvas">
-                <span v-for="pp in canvas">
+                <span v-for="(pp, idx) in canvas" v-bind:key="idx">
                     <div class="frame-paper-small" >
                         <div class="fps-top">
                             <router-link :to="{name: 'visit-canvas', params: {username: pp.username, idcanvas: pp.idcanvas}}">
@@ -65,9 +65,11 @@
                             </div>
                         </div>
                         <div class="fps-rig">
-                            <button class="btn btn-grey2-color btn-circle">
-                                <span class="fa fa-lg fa-plus"></span>
-                            </button>
+                            <router-link :to="{name: 'visit-canvas', params: {username: pp.username, idcanvas: pp.idcanvas}}">
+                                <button class="btn btn-grey2-color btn-circle">
+                                    <span class="fa fa-lg fa-plus"></span>
+                                </button>
+                            </router-link>
                         </div>
                     </div>
                 </span>

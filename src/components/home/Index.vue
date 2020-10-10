@@ -11,7 +11,7 @@ import FrameDesign from '../post/Card';
 export default {
     beforeCreate: function () {
         if (!this.$cookie.get('jwt')) {
-            this.$router.push('/trendings');
+            this.$router.push('/fresh');
         }
     },
     data () {

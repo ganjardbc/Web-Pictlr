@@ -23,7 +23,7 @@ export default {
     data () {
         return {
             urlGetDesign: '',
-            urlGetTopic: this.baseUrl+'/api/tag/top',
+            urlGetTopic: this.baseUrl+'/api/tag/limit/15',
             title: this.$route.name,
             tags: [],
             loading: false,

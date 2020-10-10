@@ -75,10 +75,10 @@
             <div class="bottom">
                 <ul>
                     <li>
-                        <router-link to="/trendings">Trendings</router-link>
+                        <router-link to="/fresh">Fresh</router-link>
                     </li>
                     <li>
-                        <router-link to="/fresh">Fresh</router-link>
+                        <router-link to="/trendings">Trendings</router-link>
                     </li>
                     <li>
                         <router-link to="/populars">Populars</router-link>

@@ -45,8 +45,8 @@
                         <form @submit.prevent="doEditCanvas">
                             <div class="fc-block no-margin-top">
                                 <div class="fcb-top">
-                                    <p class="ttl ctn-main-font ctn-14px ctn-thin ctn-sek-color">
-                                        Title
+                                    <p class="ttl txt-site txt-10 txt-primary txt-thin">
+                                        Title [required]
                                     </p>
                                 </div>
                                 <div class="fcb-mid">
@@ -62,8 +62,8 @@
                             </div>
                             <div class="fc-block">
                                 <div class="fcb-top">
-                                    <p class="ttl ctn-main-font ctn-14px ctn-thin ctn-sek-color">
-                                        Description [optional]
+                                    <p class="ttl txt-site txt-10 txt-primary txt-thin">
+                                        Description
                                     </p>
                                 </div>
                                 <div class="fcb-mid">
@@ -78,8 +78,8 @@
                             </div>
                             <div class="fc-block">
                                 <div class="fcb-top">
-                                    <p class="ttl ctn-main-font ctn-14px ctn-thin ctn-sek-color">
-                                        Tags [optional]
+                                    <p class="ttl txt-site txt-10 txt-primary txt-thin">
+                                        Tags
                                     </p>
                                 </div>
                                 <div class="fcb-mid">

@@ -56,6 +56,9 @@
                                     </p>
                                 </div>
                                 <div class="fccc-mid">
+                                    <div v-if="loading">
+                                        <frame-loading></frame-loading>
+                                    </div>
                                     <div v-if="frameSmallPaperEmpty">
                                         <div class="padding-20px">
                                             <div class="padding-20px"></div>
@@ -68,7 +71,7 @@
                                         </div>
                                     </div>
                                     <div v-if="frameSmallPaperContent">
-                                        <div v-for="pp in paper">
+                                        <div v-for="(pp, idx) in paper" v-bind:key="idx">
                                             <div 
                                                 class="frame-small-paper" 
                                                 :id="'small-paper-'+pp.idcanvas">
@@ -126,7 +129,7 @@
                                                 class="chk btn btn-circle btn-main-color" 
                                                 type="button"
                                                 @click="showCreatePaper">
-                                                <span class="fa fa-lg fa-plus"></span>
+                                                <span class="fa fa-1x fa-plus"></span>
                                             </button>
                                         </div>
                                         <div class="grid-2">
@@ -188,6 +191,8 @@
     </div>
 </template>
 <script>
+import FrameLoading from '../main/FrameLoading';
+
 export default {
     data () {
         return {
@@ -210,6 +215,7 @@ export default {
             frameSmallPaperEmpty: false,
             refreshSmallPaper: true,
             framePaperMessage: false,
+            loading: false,
             paperMessage: '',
             dt: {
                 title: '',
@@ -222,6 +228,9 @@ export default {
     created: function () {
         this.doCheck();
         this.fetchDataPaper();
+    },
+    components: {
+        'frame-loading': FrameLoading,
     },
     methods: {
         cancelDesign: function () {
@@ -346,8 +355,10 @@ export default {
             var vm = this;
             vm.frameSmallPaperEmpty = false;
             vm.frameSmallPaperContent = false;
+            this.loading = true;
             axios.get(this.urlGetPaper)
             .then(response => {
+                this.loading = false;
                 if (response.data.status == 'success') 
                 {
                     vm.frameSmallPaperEmpty = false;
@@ -361,6 +372,7 @@ export default {
                 }
             })
             .catch(e => {
+                this.loading = false;
                 if (e.response.data.error) 
                 {
                     this.$openMessageOk(e.response.data.error);

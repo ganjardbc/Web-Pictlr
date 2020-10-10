@@ -1,34 +1,36 @@
 <template>
     <div class="width width-1000px width-center post-grid">
         <div class="post-grid-1">
-            <div class="post-compose">
-                <div class="pc-col-1">
-                    <router-link :to="{path: '/'+$cookie.get('username')}">
-                        <div 
-                            class="image image-60px image-radius"
-                            :style="{
-                                'background-image': 'url('+urlThumbnailProfile+$cookie.get('foto')+')'
-                            }"></div>
-                    </router-link>
-                </div>
-                <div class="pc-col-2">
-                    <router-link :to="{name: 'create-post'}">
-                        <div class="pc-info">
-                            <div class="pc-icn fa fa-lg fa-plus txt-site txt-blue txt-20"></div>
-                            <div class="pc-ttl txt-site txt-12 txt-main txt-thin">
-                                Create Post
+            <div class="mobile">
+                <div class="post-compose">
+                    <div class="pc-col-1">
+                        <router-link :to="{path: '/'+$cookie.get('username')}">
+                            <div 
+                                class="image image-60px image-radius"
+                                :style="{
+                                    'background-image': 'url('+urlThumbnailProfile+$cookie.get('foto')+')'
+                                }"></div>
+                        </router-link>
+                    </div>
+                    <div class="pc-col-2">
+                        <router-link :to="{name: 'create-post'}">
+                            <div class="pc-info">
+                                <div class="pc-icn fa fa-lg fa-plus txt-site txt-blue txt-20"></div>
+                                <div class="pc-ttl txt-site txt-10 txt-main txt-thin">
+                                    Create Post
+                                </div>
                             </div>
-                        </div>
-                    </router-link>
-                    <div class="dashed"></div>
-                    <router-link :to="{name: 'create-canvas'}">
-                        <div class="pc-info">
-                            <div class="pc-icn fa fa-lg fa-th-large txt-site txt-orange txt-20"></div>
-                            <div class="pc-ttl txt-site txt-12 txt-main txt-thin">
-                                Create Canvas
+                        </router-link>
+                        <div class="dashed"></div>
+                        <router-link :to="{name: 'create-canvas'}">
+                            <div class="pc-info">
+                                <div class="pc-icn fa fa-lg fa-th-large txt-site txt-orange txt-20"></div>
+                                <div class="pc-ttl txt-site txt-10 txt-main txt-thin">
+                                    Create Canvas
+                                </div>
                             </div>
-                        </div>
-                    </router-link>
+                        </router-link>
+                    </div>
                 </div>
             </div>
             <div v-if="$cookie.get('jwt')">
