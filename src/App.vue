@@ -47,24 +47,31 @@
                                         </router-link>
                                     </div>
                                 </div>
+                                <div class="list text">
+                                    <div>
+                                        <router-link :to="{name: 'following'}" :class="navFollow">
+                                            <span class="txt-site txt-bold txt-11">Following</span>
+                                        </router-link>
+                                    </div>
+                                </div>
                                 <div class="list circle">
                                     <div>
                                         <router-link :to="{name: 'fresh'}" :class="navTrend">
-                                            <span class="icn fas fa-lg fa-compass txt-site txt-16"></span>
+                                            <span class="icn far fa-lg fa-compass txt-site txt-16" style="position: relative; top: 2px;"></span>
                                         </router-link>
                                     </div>
                                 </div>
-                                <div class="list circle">
+                                <!-- <div class="list circle">
                                     <div>
                                         <router-link :to="{name: 'following'}" :class="navFollow">
-                                            <span class="icn fas fa-lg fa-users txt-site txt-16"></span>
+                                            <span class="icn fas fa-lg fa-user-friends txt-site txt-16" style="position: relative; top: 2px;"></span>
                                         </router-link>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="list circle">
                                     <div>
                                         <router-link :to="{name: 'notif'}" :class="navNotif">
-                                            <div class="icn fas fa-lg fa-bell"></div>
+                                            <div class="icn far fa-lg fa-bell" style="position: relative; top: 2px;"></div>
                                         </router-link>
                                     </div>
                                 </div>
@@ -299,6 +306,6 @@ export default {
 
 <style>
 	/* @import url('./assets/icons/fontawesome/css/all.min.css'); */
-    @import url('https://use.fontawesome.com/releases/v5.7.2/css/all.css');
+    @import url('https://use.fontawesome.com/releases/v5.15.1/css/all.css');
 	@import url('./assets/sass/app.css');
 </style>
