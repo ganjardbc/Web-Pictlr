@@ -2,7 +2,7 @@
 .btn {
 	position: relative;
 	padding: 12.5px 14px;
-	border-radius: 5px;
+	border-radius: $radius;
 	font-size: 14px;
 	font-weight: 600;
 	text-align: center;
@@ -162,5 +162,12 @@
 	}
 	&.btn-font-big {
 		font-size: 18px;
+	}
+	.btn-main-icon {
+		font-size: 15px;
+		margin-right: 5px;
+		&.btn-mobile-no-margin {
+			margin-right: 0;
+		}
 	}
 }

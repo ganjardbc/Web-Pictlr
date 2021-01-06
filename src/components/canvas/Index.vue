@@ -85,19 +85,19 @@
                                 <span v-if="this.$cookie.get('id') != pp.id">
                                     <div v-if="iswatch == '0'">
                                         <button 
-                                            :class="['btn btn-radius btn-main-color watch-'+pp.idcanvas]" 
+                                            :class="['btn btn-main-color watch-'+pp.idcanvas]" 
                                             @click="$watchPaper($cookie.get('id'), pp.id, pp.idcanvas)"
                                             id="unwatch">
-                                            <span id="icn" class="fas fa-lg fa-plus"></span>
+                                            <span id="icn" class="fas fa-lg fa-plus btn-main-icon"></span>
                                             <span id="ttl">Watch</span>
                                         </button>
                                     </div>
                                     <div v-else>
                                         <button 
-                                            :class="['btn btn-radius btn-grey2-color watch-'+pp.idcanvas]" 
+                                            :class="['btn btn-grey2-color watch-'+pp.idcanvas]" 
                                             @click="$watchPaper($cookie.get('id'), pp.id, pp.idcanvas)"
                                             id="watched">
-                                            <span id="icn" class="fas fa-lg fa-check"></span>
+                                            <span id="icn" class="fas fa-lg fa-check btn-main-icon"></span>
                                             <span id="ttl">Unwatch</span>
                                         </button>
                                     </div>
@@ -109,8 +109,8 @@
                                         </button>
                                     </router-link>
                                     <router-link :to="{'path': '/'+this.$route.params.username+'/canvas/'+this.$route.params.idcanvas+'/edit'}" >
-                                        <button class="btn btn-radius btn-grey2-color">
-                                            <span class="fas fa-lg fa-pencil-alt"></span>
+                                        <button class="btn btn-grey2-color">
+                                            <span class="fas fa-lg fa-pencil-alt btn-main-icon"></span>
                                             <span>Edit</span>
                                         </button>
                                     </router-link>

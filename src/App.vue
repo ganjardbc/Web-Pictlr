@@ -3,7 +3,7 @@
 
 		<div id="header" class="hd-mobile">
             <div class="hd-place">
-                <div class="hd-menu col-all">
+                <div class="hd-menu col-full">
                     <div class="hd-pos hd-lef">
                         <div class="logo" >
                             <router-link :to="{name: ($cookie.get('jwt')) ? 'home' : 'welcome' }">
@@ -20,12 +20,13 @@
                                 <button 
                                     type="submit" 
                                     class="btn btn-circle btn-main4-color btn-radius btn-no-focus">
-                                    <span class="fa fa-lg fa-search"></span>
+                                    <span class="fa fa-lg fa-search" style="font-size: 16px;"></span>
                                 </button>
                                 <input 
                                     type="text" 
                                     name="q" 
                                     class="txt txt-main-color txt-no-shadow" 
+                                    style="padding-left: 0px;"
                                     id="txt-search" 
                                     placeholder="Search.." 
                                     required="true"
@@ -94,8 +95,8 @@
                                 </div>
                                 <div class="list create" style="margin-left: 15px;">
                                     <router-link :to="{name: 'create-post'}">
-                                        <div class="btn btn-main-color btn-radius">
-                                            <span class="fas fa-lg fa-plus txt-site txt-14"></span>
+                                        <div class="btn btn-main-color">
+                                            <span class="fas fa-lg fa-plus btn-main-icon btn-mobile-no-margin"></span>
                                             <span class="ttl">Create Post</span>
                                         </div>
                                     </router-link>

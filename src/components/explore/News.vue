@@ -29,7 +29,7 @@
                         Populars
                     </router-link>
                 </div>
-                <div v-if="$cookie.get('jwt')" class="frame-topic color-4">
+                <div v-if="$cookie.get('jwt')" class="frame-topic color-4" style="margin-right: 0px;">
                     <router-link to="/timelines">
                         Timelines
                     </router-link>

@@ -43,7 +43,7 @@
                                     </div>
                                     <div class="sc-col-2 txt-right">
                                         <button class="btn btn-grey2-color">
-                                            <span class="fas fa-lg fa-share-alt"></span>
+                                            <span class="fas fa-lg fa-share-alt btn-main-icon"></span>
                                             <span>Share</span>
                                         </button>
                                         <button 
@@ -54,7 +54,7 @@
                                                     urlThumbnailStory+dg.images,
                                                     dg.title_design
                                                 )">
-                                                <span class="fas fa-lg fa-bookmark"></span>
+                                                <span class="fas fa-lg fa-bookmark btn-main-icon"></span>
                                                 <span>Save</span>
                                         </button>
                                     </div>

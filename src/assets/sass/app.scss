@@ -112,8 +112,8 @@ a {
 		}
 		.hd-menu {
 			position: relative;
-			width: calc(100% - 40px);
-			padding: 10px 20px;
+			width: $col-full;
+			padding: 10px 0;
 			cursor: default;
 			@include grid_3x(120px, 1fr, 1fr);
 			@media (max-width: $max-width) {
@@ -164,6 +164,9 @@ a {
 							position: fixed;
 							bottom: 10px;
 							right: 10px;
+							// .btn {
+							// 	border-radius: 100%;
+							// }
 							.ttl {
 								display: none;
 							}
@@ -222,7 +225,7 @@ a {
 					}
 				}
 				.main-search {
-					width: 450px;
+					width: 400px;
 					height: 45px;
 					overflow: hidden;
 					background-color: rgba(225,225,225,0.44);
@@ -243,7 +246,7 @@ a {
 						}
 					}
 					.txt {
-						width: calc(100% - 70px);
+						width: calc(100% - 60px);
 						float: right;
 						background-color: rgba(0,0,0,0);
 						color: $txt-sek-color;

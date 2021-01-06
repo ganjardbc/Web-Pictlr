@@ -80,7 +80,7 @@
                                             </router-link>
                                             <router-link :to="{name: 'user-setting'}">
                                                 <button class="btn btn-radius btn-main2-color btn-focus">
-                                                    <span class="fas fa-lg fa-cog"></span>
+                                                    <span class="fas fa-lg fa-cog btn-main-icon"></span>
                                                     <span>Setting</span>
                                                 </button>
                                             </router-link>

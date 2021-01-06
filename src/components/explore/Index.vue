@@ -1,5 +1,5 @@
 <template>
-    <div class="col-full">
+    <div class="navigator-wrap-container col-full">
         <div class="navigator-wrap nw-fixed">
             <div class="nw-place">
                 <div class="grid-1 btn-nav" @click="toLeft('nav-topic')">
