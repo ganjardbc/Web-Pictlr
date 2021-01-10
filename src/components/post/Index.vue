@@ -42,7 +42,7 @@
                                         </span>
                                     </div>
                                     <div class="sc-col-2 txt-right">
-                                        <button class="btn btn-grey2-color">
+                                        <button class="btn btn-grey2-color" style="margin-right: 5px;">
                                             <span class="fas fa-lg fa-share-alt btn-main-icon"></span>
                                             <span>Share</span>
                                         </button>
@@ -122,8 +122,8 @@
                                 Tags
                             </div>
 
-                            <div style="display: flex; flex-wrap: nowrap;">
-                                <div v-for="(tag, idx) in tagDesign" v-bind:key="idx">
+                            <div style="position: relative; width: 100%;">
+                                <div v-for="(tag, idx) in tagDesign" v-bind:key="idx" style="display: inline-block; vertical-align: top;">
                                     <router-link 
                                         :to="{
                                             name: 'index-tags', 
@@ -229,12 +229,12 @@
                                                 <router-link :to="{name: 'user', params: {username: rest.username}}">
                                                     {{ rest.name }}
                                                 </router-link>
+                                                <span class="txt-site txt-11 txt-thin txt-main">
+                                                    {{ rest.description }}
+                                                </span>
                                             </div>
                                             <div class="txt-site txt-9 txt-thin txt-primary">
                                                 <span>{{ rest.created | moment('from', 'now') }}</span>
-                                            </div>
-                                            <div class="txt-site txt-12 txt-thin txt-main">
-                                                {{ rest.description }}
                                             </div>
                                         </div>
                                         <div v-if="$cookie.get('id') == rest.id" class="fsp-col-3">

@@ -98,7 +98,7 @@
                                         type="button" 
                                         value="Cancel" 
                                         class="btn btn-grey2-color"
-                                        @click="cancelCreateCanvas">
+                                        @click="$goBack()">
                                     <input 
                                         type="submit" 
                                         value="Save" 
@@ -163,6 +163,7 @@ export default {
             });
         },
         doEditCanvas: function () { 
+            var vm = this;
             this.$openMessageLoading('open', 'Editing Daper');
             axios.post(this.urlEditCanvas, {
                 'idcanvas': this.dt.idcanvas,
@@ -173,19 +174,22 @@ export default {
             .then(response => {
                 this.$openMessageLoading('hide');
                 if (response.data.status == 'successful') {
-                    var vm = this;
                     /*this.dt.title = '';
                     this.dt.description = '';
                     this.dt.tags = '';*/
                     this.idcanvas = response.data.idcanvas;
-                    this.$openMessageYesNo('Canvas edited, visit now?', function () {
-                        //vm.$router.push('/'+vm.$cookie.get('username')+'/canvas/'+vm.idcanvas);
-                        // window.location = '/'+vm.$cookie.get('username')+'/canvas/'+vm.idcanvas;
-                        vm.$router.replace({name: 'visit-canvas', params: {
-                            username: vm.$cookie.get('username'),
-                            idcanvas: vm.idcanvas
-                        }});
-                    });
+                    // this.$openMessageYesNo('Canvas edited, visit now?', function () {
+                    //     //vm.$router.push('/'+vm.$cookie.get('username')+'/canvas/'+vm.idcanvas);
+                    //     // window.location = '/'+vm.$cookie.get('username')+'/canvas/'+vm.idcanvas;
+                    //     vm.$router.replace({name: 'visit-canvas', params: {
+                    //         username: vm.$cookie.get('username'),
+                    //         idcanvas: vm.idcanvas
+                    //     }});
+                    // });
+                    vm.$router.push({name: 'visit-canvas', params: {
+                        username: vm.$cookie.get('username'),
+                        idcanvas: vm.idcanvas
+                    }});
                 } else {
                     this.$openMessageOk(response.data.message);
                 }

@@ -304,7 +304,7 @@ export default new Router({
       path: '/:username/canvas/:idcanvas/edit',
       name: 'edit-canvas',
       components: {
-          content: CanvasEdit,
+          fresh: CanvasEdit,
       }
     },
 
@@ -344,7 +344,7 @@ export default new Router({
       path: '/post/:idbookmark',
       name: 'index-post',
       components: {
-          content: PostIndex,
+          fresh: PostIndex,
       }
     },
     {
@@ -358,7 +358,7 @@ export default new Router({
       path: '/post/:idbookmark/edit',
       name: 'edit-post',
       components: {
-          content: PostEdit,
+          fresh: PostEdit,
       }
     },
 

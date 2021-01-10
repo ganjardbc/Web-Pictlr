@@ -433,7 +433,7 @@ export default {
                     });*/
                     //this.$openMessageOk(response.data.message);
                     // window.location = '/post/'+response.data.idbookmark;
-                    vm.$router.replace({name: 'index-post', params: {idbookmark: response.data.idbookmark}});
+                    vm.$router.push({name: 'index-post', params: {idbookmark: response.data.idbookmark}});
                 } else {
                     this.$openMessageOk(response.data.message);
                 }

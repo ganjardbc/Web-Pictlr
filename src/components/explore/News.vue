@@ -29,11 +29,11 @@
                         Populars
                     </router-link>
                 </div>
-                <div v-if="$cookie.get('jwt')" class="frame-topic color-4" style="margin-right: 0px;">
+                <!-- <div v-if="$cookie.get('jwt')" class="frame-topic color-4" style="margin-right: 0px;">
                     <router-link to="/timelines">
                         Timelines
                     </router-link>
-                </div>
+                </div> -->
                 <div class="frame-topic mn-color" v-for="(tag, idx) in topics" v-bind:key="idx">
                     <div 
                             class="bg-cover"
