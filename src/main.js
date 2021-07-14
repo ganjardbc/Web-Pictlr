@@ -20,7 +20,7 @@ window.$ = jquery
 
 // assets
 Vue.prototype.initUrl = window.location.protocol+'//'+window.location.host
-Vue.prototype.baseUrl = 'https://pictlr.undangabi.com'
+Vue.prototype.baseUrl = 'https://undangabi.com/projects/pictlr-api/public'
 
 Vue.prototype.urlThumbnailProfile = Vue.prototype.baseUrl+'/img/profile/thumbnails/'
 Vue.prototype.urlFotoProfile = Vue.prototype.baseUrl+'/img/profile/photos/'
